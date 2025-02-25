@@ -26,6 +26,7 @@ func main() {
 	// Register Routes
 	routes.SetupAuthRoutes(app)
 	routes.SetupBookRoutes(app)
+	routes.SetupBookRequestRoutes(app)
 
 	port := os.Getenv("PORT")
 	if port == "" {
