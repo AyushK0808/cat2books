@@ -8,6 +8,6 @@ import (
 
 func SetupBookRoutes(app *fiber.App) {
 	bookGroup := app.Group("/books")
-	bookGroup.Post("/", controllers.AddBook)
+	bookGroup.Post("/add", controllers.AddBook)
 	bookGroup.Get("/", controllers.GetBooks)
 }
