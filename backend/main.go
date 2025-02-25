@@ -27,6 +27,7 @@ func main() {
 	routes.SetupAuthRoutes(app)
 	routes.SetupBookRoutes(app)
 	routes.SetupBookRequestRoutes(app)
+	routes.SetupChatRoutes(app)
 
 	port := os.Getenv("PORT")
 	if port == "" {
