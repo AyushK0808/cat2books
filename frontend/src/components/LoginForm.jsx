@@ -32,15 +32,37 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Login</h2>
-      {error && <p className="text-red-500">{error}</p>}
-      {message && <p className="text-green-500">{message}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input type="email" name="email" placeholder="Email" className="w-full p-2 border rounded" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" className="w-full p-2 border rounded" onChange={handleChange} required />
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">Login</button>
+    <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
+      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+      {message && <p className="text-green-500 text-center mb-4">{message}</p>}
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+          onChange={handleChange}
+          required
+        />
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300"
+        >
+          Login
+        </button>
       </form>
+      <p className="text-center text-gray-600 mt-4">
+        Don't have an account? <a href="/auth/signup" className="text-blue-600 hover:underline">Sign up</a>
+      </p>
     </div>
   );
 };

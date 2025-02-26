@@ -1,9 +1,11 @@
+import './App.css';
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignUpForm";
 import Navbar from "./components/Navbar";
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
