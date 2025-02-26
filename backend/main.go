@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
 )
 
@@ -23,6 +24,14 @@ func main() {
 		},
 	})
 
+	// Enable CORS
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:     "http://localhost:5173", // Allow requests from your frontend
+		AllowMethods:     "GET,POST,HEAD,OPTIONS,PUT,PATCH,DELETE",
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
+		AllowCredentials: true,
+	}))
+
 	// Register Routes
 	routes.SetupAuthRoutes(app)
 	routes.SetupBookRoutes(app)
@@ -31,7 +40,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3000"
+		port = "4000" // Changed to 4000 since backend runs on this port
 	}
 
 	for _, route := range app.GetRoutes() {
